@@ -15,41 +15,41 @@ class TugasduaView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Nama',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             TextFormField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Masukkan nama Anda',
               ),
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Tanggal Lahir',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             TextFormField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Masukkan tanggal lahir Anda',
               ),
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Nomor Telepon',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             TextFormField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Masukkan nomor telepon Anda',
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 // Lakukan sesuatu ketika tombol ditekan
               },
-              child: Text('Submit'),
+              child: const Text('Submit'),
             ),
           ],
         ),
@@ -59,7 +59,7 @@ class TugasduaView extends StatelessWidget {
 }
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: TugasduaView(),
   ));
 }

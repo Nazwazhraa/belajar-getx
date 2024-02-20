@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../controllers/counter_controller.dart';
 
 class CounterView extends GetView<CounterController> {
-  CounterView({Key? key}) : super(key: key);
+  const CounterView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +13,7 @@ class CounterView extends GetView<CounterController> {
         title: const Text('HomeView'),
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Get.toNamed('/home', preventDuplicates: true);
           },
@@ -26,7 +26,7 @@ class CounterView extends GetView<CounterController> {
               () {
                 return Text(
               "${controller.count}",
-              style: TextStyle(fontSize: 20),
+              style: const TextStyle(fontSize: 20),
             );
            },
            ),
@@ -36,7 +36,7 @@ class CounterView extends GetView<CounterController> {
               onPressed: () {
                 controller.increment();
               },
-              child: Icon(Icons.add), 
+              child: const Icon(Icons.add), 
               )
           ],
         )

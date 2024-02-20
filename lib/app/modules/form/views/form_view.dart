@@ -12,26 +12,26 @@ class FormView extends GetView<FormController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Latihan Form'),
+        title: const Text('Latihan Form'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Get.back();
           },
         ),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Form(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               TextFormField(
-                decoration: InputDecoration(labelText: 'Nama Lengkap'),
+                decoration: const InputDecoration(labelText: 'Nama Lengkap'),
                 onChanged: (value) => controller.namalengkap.value = value,
               ),
               TextFormField(
-                decoration: InputDecoration(labelText: 'Tempat Lahir'),
+                decoration: const InputDecoration(labelText: 'Tempat Lahir'),
                 onChanged: (value) => controller.tempatlahir.value = value,
               ),
               Obx(
@@ -39,7 +39,7 @@ class FormView extends GetView<FormController> {
                   decoration: InputDecoration(
                     labelText: 'Tanggal Lahir',
                     suffixIcon: IconButton(
-                      icon: Icon(Icons.calendar_today),
+                      icon: const Icon(Icons.calendar_today),
                       onPressed: () => controller.selectDate(context),
                     ),
                   ),
@@ -49,16 +49,16 @@ class FormView extends GetView<FormController> {
                 ),
               ),
               TextFormField(
-                decoration: InputDecoration(labelText: 'Email'),
+                decoration: const InputDecoration(labelText: 'Email'),
                 onChanged: (value) => controller.email.value = value,
               ),
               TextFormField(
-                decoration: InputDecoration(labelText: 'Negara'),
+                decoration: const InputDecoration(labelText: 'Negara'),
                 onChanged: (value) => controller.negara.value = value,
               ),
-              SizedBox(height: 16),
-              Text('Pilih Jenis Member:'),
-              SizedBox(height: 8),
+              const SizedBox(height: 16),
+              const Text('Pilih Jenis Member:'),
+              const SizedBox(height: 8),
               Obx(
                 () => Wrap(
                   children: controller.memberList.map((memberType) {
@@ -74,11 +74,11 @@ class FormView extends GetView<FormController> {
                   }).toList(),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               TextFormField(
-                decoration: InputDecoration(labelText: 'Nomor Kartu'),
+                decoration: const InputDecoration(labelText: 'Nomor Kartu'),
                 onChanged: (value) => controller.nomorkartu.value = value,
-                style: TextStyle(fontSize: 16),
+                style: const TextStyle(fontSize: 16),
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
               ),
               Obx(
@@ -86,7 +86,7 @@ class FormView extends GetView<FormController> {
                   decoration: InputDecoration(
                     labelText: 'Tanggal Expired',
                     suffixIcon: IconButton(
-                      icon: Icon(Icons.calendar_today),
+                      icon: const Icon(Icons.calendar_today),
                       onPressed: () => controller.selectDate(context, isExpiredDate: true),
                     ),
                   ),
@@ -99,29 +99,29 @@ class FormView extends GetView<FormController> {
                   onTap: () => controller.selectDate(context, isExpiredDate: true),
                 ),
               ),
-              SizedBox(height: 16),
-              Text(
+              const SizedBox(height: 16),
+              const Text(
                 'Payment:',
                 style: TextStyle(fontSize: 16),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Obx(
                 () => Text(
                   'Harga Member: ${controller.totalHarga.value}',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
               ElevatedButton(
                 onPressed: () {  
-                  Get.to(() => OutputPage());
+                  Get.to(() => const OutputPage());
                 },  
-                child: Text('Submit'),
+                child: const Text('Submit'),
               ),
               Obx(
                 () => controller.isFormSubmitted.value
-                    ? Text('Formulir sudah disubmit!')
-                    : SizedBox.shrink(),
+                    ? const Text('Formulir sudah disubmit!')
+                    : const SizedBox.shrink(),
               ),
             ],
           ),

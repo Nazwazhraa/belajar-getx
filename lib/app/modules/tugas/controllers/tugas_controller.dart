@@ -30,7 +30,7 @@ void _showLimitAlert() {
     backgroundColor: Colors.red,
     colorText: Colors.white,
     snackPosition: SnackPosition.TOP, 
-    duration: Duration(seconds: 5), 
+    duration: const Duration(seconds: 5), 
   );
 }
 }

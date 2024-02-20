@@ -14,7 +14,7 @@ class BiodataView extends StatelessWidget {
         title: const Text('HomeView'),
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Get.toNamed('/home', preventDuplicates: true);
           },
@@ -22,7 +22,7 @@ class BiodataView extends StatelessWidget {
      ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -31,16 +31,16 @@ class BiodataView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     TextFormField(
-                      decoration: InputDecoration(labelText: 'Nama'),
+                      decoration: const InputDecoration(labelText: 'Nama'),
                       onChanged: (value) =>
                           biodataController.nama.value = value,
                     ),
-                    SizedBox(height: 16.0),
+                    const SizedBox(height: 16.0),
                     InkWell(
                       onTap: () =>
                           biodataController.selectDate(context),
                       child: InputDecorator(
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           labelText: 'Tanggal Lahir',
                           hintText: 'Pilih Tanggal',
                         ),
@@ -48,14 +48,14 @@ class BiodataView extends StatelessWidget {
                           mainAxisAlignment:
                               MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('Tanggal Lahir:'),
+                            const Text('Tanggal Lahir:'),
                             Obx(() => Text(
                                 biodataController.selectedDate.value)),
                           ],
                         ),
                       ),
                     ),
-                    SizedBox(height: 16.0),
+                    const SizedBox(height: 16.0),
                     DropdownButtonFormField(
                       items: [
                         'Islam',
@@ -69,9 +69,9 @@ class BiodataView extends StatelessWidget {
                           .toList(),
                       onChanged: (value) =>
                           biodataController.agama.value = value.toString(),
-                      decoration: InputDecoration(labelText: 'Agama'),
+                      decoration: const InputDecoration(labelText: 'Agama'),
                     ),
-                    SizedBox(height: 16.0),
+                    const SizedBox(height: 16.0),
                     Row(
                       children: [
                         Obx(() => Radio(
@@ -81,7 +81,7 @@ class BiodataView extends StatelessWidget {
                             onChanged: (value) =>
                                 biodataController.jenisKelamin.value = value
                                     .toString())),
-                        Text('Laki-Laki'),
+                        const Text('Laki-Laki'),
                         Obx(() => Radio(
                             value: 'Perempuan',
                             groupValue:
@@ -89,17 +89,17 @@ class BiodataView extends StatelessWidget {
                             onChanged: (value) =>
                                 biodataController.jenisKelamin.value = value
                                     .toString())),
-                        Text('Perempuan'),
+                        const Text('Perempuan'),
                       ],
                     ),
-                    SizedBox(height: 16.0),
+                    const SizedBox(height: 16.0),
                     TextFormField(
                       maxLines: 3,
-                      decoration: InputDecoration(labelText: 'Alamat'),
+                      decoration: const InputDecoration(labelText: 'Alamat'),
                       onChanged: (value) =>
                           biodataController.alamat.value = value,
                     ),
-                    SizedBox(height: 16.0),
+                    const SizedBox(height: 16.0),
                     for (String hobi in biodataController.getHobiList())
                       Obx(() => CheckboxListTile(
                             title: Text(hobi),
@@ -107,23 +107,23 @@ class BiodataView extends StatelessWidget {
                             onChanged: (value) =>
                                 biodataController.toggleHobi(hobi),
                           )),
-                    SizedBox(height: 16.0),
+                    const SizedBox(height: 16.0),
                     ElevatedButton(
                       onPressed: () => _showAlert(context),
-                      child: Text('Submit'),
+                      child: const Text('Submit'),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               Obx(() {
                 if (biodataController.isFormSubmitted.value) {
                   return Text(
                     'Output: ${biodataController.nama}, ${biodataController.tanggalLahir}, ${biodataController.agama}, ${biodataController.jenisKelamin}, ${biodataController.alamat}, ${biodataController.hobi}',
-                    style: TextStyle(fontSize: 16.0),
+                    style: const TextStyle(fontSize: 16.0),
                   );
                 } else {
-                  return SizedBox.shrink();
+                  return const SizedBox.shrink();
                 }
               }),
             ],
@@ -138,7 +138,7 @@ class BiodataView extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Biodata Anda'),
+          title: const Text('Biodata Anda'),
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
@@ -156,7 +156,7 @@ class BiodataView extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('OK'),
+              child: const Text('OK'),
             ),
           ],
         );

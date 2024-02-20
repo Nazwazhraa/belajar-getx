@@ -13,7 +13,7 @@ class HomeView extends GetView<HomeController> {
         centerTitle: true,
         leadingWidth: Get.currentRoute == '/home' ? 0 : kToolbarHeight, 
         leading: Get.currentRoute == '/home' ? null : IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
           
           },
@@ -23,51 +23,51 @@ class HomeView extends GetView<HomeController> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               'HomeView is working',
               style: TextStyle(fontSize: 20),
             ),
-            SizedBox(height: 20), // Menambahkan jarak 20 pixel di antara tombol-tombol
+            const SizedBox(height: 20), // Menambahkan jarak 20 pixel di antara tombol-tombol
             ElevatedButton(
               onPressed: () {
                 Get.toNamed('/profile');
               },
-              child: Text("Pindah ke profil"),
+              child: const Text("Pindah ke profil"),
             ),
-            SizedBox(height: 10), // Menambahkan jarak 10 pixel di antara tombol-tombol
+            const SizedBox(height: 10), // Menambahkan jarak 10 pixel di antara tombol-tombol
             ElevatedButton(
               onPressed: () {
                 Get.toNamed('/counter');
               },
-              child: Text("Pindah halaman Counter"),
+              child: const Text("Pindah halaman Counter"),
             ),
-            SizedBox(height: 10), // Menambahkan jarak 10 pixel di antara tombol-tombol
+            const SizedBox(height: 10), // Menambahkan jarak 10 pixel di antara tombol-tombol
             ElevatedButton(
               onPressed: () {
                 Get.toNamed('/tugas');
               },
-              child: Text("Halaman Tugas"),
+              child: const Text("Halaman Tugas"),
             ),
-            SizedBox(height: 10), // Menambahkan jarak 10 pixel di antara tombol-tombol
+            const SizedBox(height: 10), // Menambahkan jarak 10 pixel di antara tombol-tombol
             ElevatedButton(
               onPressed: () {
                 Get.toNamed('/tugasdua');
               },
-              child: Text("Halaman Tugasdua"),
+              child: const Text("Halaman Tugasdua"),
             ),
-            SizedBox(height: 10), // Menambahkan jarak 10 pixel di antara tombol-tombol
+            const SizedBox(height: 10), // Menambahkan jarak 10 pixel di antara tombol-tombol
             ElevatedButton(
               onPressed: () {
                 Get.toNamed('/biodata');
               },
-              child: Text("Halaman Biodata"),
+              child: const Text("Halaman Biodata"),
             ),
-            SizedBox(height: 10), // Menambahkan jarak 10 pixel di antara tombol-tombol
+            const SizedBox(height: 10), // Menambahkan jarak 10 pixel di antara tombol-tombol
             ElevatedButton(
               onPressed: () {
                 Get.toNamed('/form');
               },
-              child: Text("Halaman Form"),
+              child: const Text("Halaman Form"),
             ),
           ],
         ),

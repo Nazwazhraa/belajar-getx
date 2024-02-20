@@ -35,7 +35,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.COUNTER,
-      page: () => CounterView(),
+      page: () => const CounterView(),
       binding: CounterBinding(),
     ),
     GetPage(

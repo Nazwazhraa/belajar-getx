@@ -36,7 +36,7 @@ class TugasView extends GetView<TugasController> {
               onPressed: () {
                 controller.decrement();
               },
-              child: Icon(Icons.remove),
+              child: const Icon(Icons.remove),
             ),
           ),
           Positioned(
@@ -46,7 +46,7 @@ class TugasView extends GetView<TugasController> {
               onPressed: () {
                 controller.increment();
               },
-              child: Icon(Icons.add),
+              child: const Icon(Icons.add),
             ),
           ),
         ],
