@@ -27,18 +27,18 @@ class HomeView extends GetView<HomeController> {
               'HomeView is working',
               style: TextStyle(fontSize: 20),
             ),
-            const SizedBox(height: 20), // Menambahkan jarak 20 pixel di antara tombol-tombol
+            const SizedBox(height: 20), 
             ElevatedButton(
               onPressed: () {
                 Get.toNamed('/profile');
               },
               child: const Text("Pindah ke profil"),
             ),
-            const SizedBox(height: 10), // Menambahkan jarak 10 pixel di antara tombol-tombol
+           const SizedBox(height: 10), 
             ElevatedButton(
               onPressed: () {
                 Get.toNamed('/counter');
-              },
+              }, 
               child: const Text("Pindah halaman Counter"),
             ),
             const SizedBox(height: 10), // Menambahkan jarak 10 pixel di antara tombol-tombol
@@ -68,6 +68,27 @@ class HomeView extends GetView<HomeController> {
                 Get.toNamed('/form');
               },
               child: const Text("Halaman Form"),
+            ),
+            const SizedBox(height: 10), 
+            ElevatedButton(
+              onPressed: () {
+                Get.toNamed('/register');
+              }, 
+              child: const Text("Pindah halaman Register"),
+            ),
+            const SizedBox(height: 10), 
+            ElevatedButton(
+              onPressed: () {
+                Get.toNamed('/login');
+              }, 
+              child: const Text("Pindah halaman Login"),
+            ),
+            const SizedBox(height: 10), 
+            ElevatedButton(
+              onPressed: () {
+                Get.toNamed('/categories');
+              }, 
+              child: const Text("Categories"),
             ),
           ],
         ),

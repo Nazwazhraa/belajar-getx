@@ -74,6 +74,9 @@ class FormController extends GetxController {
     isFormSubmitted.value = true;
   }
 
+  
+  
+
   void calculateAge() {
     if (tanggallahir.value != null) {
       final today = DateTime.now();
@@ -88,5 +91,6 @@ class FormController extends GetxController {
     } else {
       umur.value = '';
     }
+    
   }
 }

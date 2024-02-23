@@ -12,26 +12,26 @@ class FormView extends GetView<FormController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Latihan Form'),
+        title: Text('Latihan Form'),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back),
           onPressed: () {
             Get.back();
           },
         ),
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Form(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               TextFormField(
-                decoration: const InputDecoration(labelText: 'Nama Lengkap'),
+                decoration: InputDecoration(labelText: 'Nama Lengkap'),
                 onChanged: (value) => controller.namalengkap.value = value,
               ),
               TextFormField(
-                decoration: const InputDecoration(labelText: 'Tempat Lahir'),
+                decoration: InputDecoration(labelText: 'Tempat Lahir'),
                 onChanged: (value) => controller.tempatlahir.value = value,
               ),
               Obx(
@@ -39,7 +39,7 @@ class FormView extends GetView<FormController> {
                   decoration: InputDecoration(
                     labelText: 'Tanggal Lahir',
                     suffixIcon: IconButton(
-                      icon: const Icon(Icons.calendar_today),
+                      icon: Icon(Icons.calendar_today),
                       onPressed: () => controller.selectDate(context),
                     ),
                   ),
@@ -49,16 +49,16 @@ class FormView extends GetView<FormController> {
                 ),
               ),
               TextFormField(
-                decoration: const InputDecoration(labelText: 'Email'),
+                decoration: InputDecoration(labelText: 'Email'),
                 onChanged: (value) => controller.email.value = value,
               ),
               TextFormField(
-                decoration: const InputDecoration(labelText: 'Negara'),
+                decoration: InputDecoration(labelText: 'Negara'),
                 onChanged: (value) => controller.negara.value = value,
               ),
-              const SizedBox(height: 16),
-              const Text('Pilih Jenis Member:'),
-              const SizedBox(height: 8),
+              SizedBox(height: 16),
+              Text('Pilih Jenis Member:'),
+              SizedBox(height: 8),
               Obx(
                 () => Wrap(
                   children: controller.memberList.map((memberType) {
@@ -74,11 +74,11 @@ class FormView extends GetView<FormController> {
                   }).toList(),
                 ),
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               TextFormField(
-                decoration: const InputDecoration(labelText: 'Nomor Kartu'),
+                decoration: InputDecoration(labelText: 'Nomor Kartu'),
                 onChanged: (value) => controller.nomorkartu.value = value,
-                style: const TextStyle(fontSize: 16),
+                style: TextStyle(fontSize: 16),
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
               ),
               Obx(
@@ -86,7 +86,7 @@ class FormView extends GetView<FormController> {
                   decoration: InputDecoration(
                     labelText: 'Tanggal Expired',
                     suffixIcon: IconButton(
-                      icon: const Icon(Icons.calendar_today),
+                      icon: Icon(Icons.calendar_today),
                       onPressed: () => controller.selectDate(context, isExpiredDate: true),
                     ),
                   ),
@@ -99,34 +99,67 @@ class FormView extends GetView<FormController> {
                   onTap: () => controller.selectDate(context, isExpiredDate: true),
                 ),
               ),
-              const SizedBox(height: 16),
-              const Text(
-                'Payment:',
+              SizedBox(height: 16),
+              Text(
+                'Total Harga:',
                 style: TextStyle(fontSize: 16),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8),
               Obx(
                 () => Text(
-                  'Harga Member: ${controller.totalHarga.value}',
-                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  '${controller.totalHarga.value}',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
-              const SizedBox(height: 50),
+              SizedBox(height: 16),
+              Text(
+                'Detail Benefits:',
+                style: TextStyle(fontSize: 16),
+              ),
+              SizedBox(height: 8),
+              Obx(
+                () => Text(
+                  '${getMembershipInfo()}',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold), // Tambahkan properti fontWeight di sini
+                ),
+              ),
+              SizedBox(height: 50),
               ElevatedButton(
                 onPressed: () {  
-                  Get.to(() => const OutputPage());
+                  Get.to(() => OutputPage());
                 },  
-                child: const Text('Submit'),
+                child: Text('Submit'),
               ),
               Obx(
                 () => controller.isFormSubmitted.value
-                    ? const Text('Formulir sudah disubmit!')
-                    : const SizedBox.shrink(),
+                    ? Text('Formulir sudah disubmit!')
+                    : SizedBox.shrink(),
               ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  String getMembershipInfo() {
+    String membershipInfo = '';
+    switch (controller.selectedMember.value) {
+      case 'Reguler':
+        membershipInfo = 'Anggota 1 Bulan';
+        break;
+      case 'Gold':
+        membershipInfo = 'Anggota 1 Bulan + Cemilan Gratis';
+        break;
+      case 'Platinum':
+        membershipInfo = 'Anggota 2 Bulan + Cemilan Gratis + Free Wifi';
+        break;
+      case 'VIP':
+        membershipInfo = 'Anggota 3 Bulan + Cemilan Gratis + Free Wifi + Tiket Konser';
+        break;
+      default:
+        membershipInfo = '';
+    }
+    return membershipInfo;
   }
 }
